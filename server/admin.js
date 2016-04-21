@@ -1,12 +1,16 @@
 'use strict';
 
+var express = require('express');
 var uuid = require('node-uuid');
 var _ = require('lodash');
-var express = require('express');
+
 var rooms = require('./data/rooms.json');
+var bodyParser = require('body-parser');
 
 var router = express.Router();
 module.exports = router;
+
+router.use(bodyParser.urlencoded({ extended: true }));
 
 router.get('/rooms', (req, res) => {
     res.render("rooms", {

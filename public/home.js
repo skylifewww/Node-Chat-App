@@ -1,4 +1,4 @@
-$(function () {
+(function ($) {
 
     var roomId;
 
@@ -29,6 +29,12 @@ $(function () {
         });
     });
 
+    $("#message").keyup(function(event){
+        if(event.keyCode == 13){
+            $("#post").click();
+        }
+    });
+
     $('body').on('click', 'a.room', function (event) {
         roomId = $(event.target).attr("data-room-id");
         getMessages();
@@ -57,5 +63,5 @@ $(function () {
         });
     });
 
-
-});
+    setInterval(getMessages, 1000);
+})(jQuery);
