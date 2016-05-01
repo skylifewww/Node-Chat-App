@@ -18,6 +18,9 @@ html(lang='en')
                             a(href='/admin/rooms') Chat Rooms
                         li(class= (activeClass === 'users' ? "active" : ""))
                             a(href='/admin/users') Users
+                    ul.nav.navbar-nav.navbar-right
+                        li
+                            a(href='/logout') Logout
         .container
             .main-content
                 block content
